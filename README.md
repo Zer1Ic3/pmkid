@@ -10,7 +10,8 @@ This script was from the view what i required, Please note that each user needs 
 
 Authors
 ----------
-Deon (@zeroice28)  
+Deon  
+Twitter @zeroice28  
 Alicia
 
 Required Package
