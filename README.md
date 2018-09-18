@@ -12,7 +12,6 @@ Authors
 ----------
 Deon  
 Twitter @zeroice28  
-Alicia
 
 Required Package
 -----------------
