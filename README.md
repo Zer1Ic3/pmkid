@@ -10,12 +10,12 @@ This script was from the view what i required, Please note that each user needs 
 
 Authors
 ----------
-Deon (@zeroice28)
+Deon (@zeroice28)  
 Alicia
 
 Required Package
 -----------------
-.:
+.:  
 apt-get update  
 apt-get dist-upgrade -y  
 apt-get install libssl-dev  
