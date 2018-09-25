@@ -19,7 +19,7 @@ os.system('clear')
 print('Monitoring starting, Please select WIFI to decrypted (BSSISD only)')
 os.system('sleep 2')
 os.system('clear')
-os.system("xterm -e 'airodump-ng wlan0mon; read'")
+os.system("xterm -e 'airodump-ng -w /tmp/scan --output-format csv wlan0mon; read'")
 
 bssid = raw_input('Please enter bssid for wifi device you want to decrypted\n')
 s = open(path, 'w')
