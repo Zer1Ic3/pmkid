@@ -29,6 +29,12 @@ git clone https://github.com/hashcat/hashcat.git (make && make install)
 git clone https://github.com/ZerBea/hcxdumptool.git(make && make install)  
 git clone https://github.com/ZerBea/hcxtools.git(make && make install)  
 
+Bash script
+------------
+#!/bin/bash  
+cd /Pentesting/Wifi_tools/PMKID/bssid/  
+sed 's/[^0-9,A-Z,]*//g' bssid.txt >> update_bssid.txt ((Line ref:32) wifi.py)  
+
 Script Details
 ---------------
 Check variables and make required change  
